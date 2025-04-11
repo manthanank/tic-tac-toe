@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+
+  .cell {
+    border-color: #666;
+    background-color: #2a2a2a;
+    color: #fff;
+
+    &:hover {
+      background-color: #3a3a3a;
+    }
+  }
+
+  .theme-toggle {
+    border-color: #666;
+    color: #fff;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  button {
+    background-color: #444;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
+}

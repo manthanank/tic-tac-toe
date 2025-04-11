@@ -1,14 +1,38 @@
 <div class="game">
-  <h1>Tic Tac Toe</h1>
+  <div class="header">
+    <h1>Tic Tac Toe</h1>
+    <button class="theme-toggle" (click)="toggleTheme()">
+      {{ isDarkTheme() ? '☀️' : '🌙' }}
+    </button>
+  </div>
+
   <div class="board">
-    @for (cell of board; track $index) {
+    @for (cell of board(); track $index) {
     <div class="cell" (click)="makeMove($index)">
       {{ cell }}
     </div>
     }
   </div>
-  @if (winner) {
-  <p>{{ winner }} wins!</p>
+
+  @if (winner()) {
+  <p>{{ winner() }} wins!</p>
   <button (click)="resetGame()">Play Again</button>
   }
+  @else if (isDraw()) {
+  <p>It's a draw!</p>
+  <button (click)="resetGame()">Play Again</button>
+  }
+  @else {
+  <p>Current player: {{ currentPlayer() }}</p>
+  }
+
+  <div class="visitor-counter">
+    @if (isVisitorCountLoading()) {
+    <p>Loading visitor count...</p>
+    } @else if (visitorCountError()) {
+    <p class="error">{{ visitorCountError() }}</p>
+    } @else {
+    <p>👀 Unique visitors: {{ visitorCount() }}</p>
+    }
+  </div>
 </div>

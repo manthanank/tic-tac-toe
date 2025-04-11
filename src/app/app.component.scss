@@ -1,6 +1,32 @@
 .game {
   text-align: center;
   font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+  }
 }
 
 .board {
@@ -38,5 +64,25 @@ button {
 
   &:hover {
     background-color: #0056b3;
+  }
+}
+
+.visitor-counter {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #666;
+
+  .error {
+    color: #d9534f;
+  }
+}
+
+body.dark-theme {
+  .visitor-counter {
+    color: #aaa;
+
+    .error {
+      color: #ff6b6b;
+    }
   }
 }
